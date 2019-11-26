@@ -7,10 +7,12 @@ import play.api.libs.json._
 import scala.collection.JavaConverters._
 
 case class CurationMapJson(query : String,
+                           alpha : Double,
                            documents : Seq[DocumentJson]){
   def this(query : String,
+           alpha : Double,
            documents : JList[DocumentJson]) = {
-    this(query, documents.asScala)
+    this(query, alpha, documents.asScala)
   }
 }
 

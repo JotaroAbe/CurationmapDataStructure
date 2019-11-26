@@ -4,6 +4,7 @@ import play.api.libs.json.Json
 
 case class LinkJson(/*destText : String,*/
                     destDocNum : Int,
+                    weight : Double,
                     uuid: String)
 
 object LinkJson{

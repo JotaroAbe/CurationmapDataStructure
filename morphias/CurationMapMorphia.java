@@ -16,13 +16,15 @@ public class CurationMapMorphia {
     private ObjectId _id;
 
     public String query;
+    public Double alpha;
     public List<DocumentMorphia> documents;
 
     @SuppressWarnings("unused")
     private CurationMapMorphia() {}
 
-    public CurationMapMorphia(String query, List<DocumentMorphia> documents){
+    public CurationMapMorphia(String query, Double alpha, List<DocumentMorphia> documents){
         this.query = query;
+        this.alpha = alpha;
         this.documents = documents;
     }
 
@@ -34,7 +36,7 @@ public class CurationMapMorphia {
                 jList.add(dm.toJson());
             }
         }
-        return new CurationMapJson(query,jList);
+        return new CurationMapJson(query, alpha, jList);
     }
 
 }

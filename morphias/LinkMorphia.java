@@ -13,18 +13,20 @@ public class LinkMorphia {
 
 //    public String destText;
     public int destDocNum;
+    public double weight;
     public String uuid;
 
     @SuppressWarnings("unused")
     private LinkMorphia() {}
 
-    public LinkMorphia(int destDocNum, String uuid){
+    public LinkMorphia(int destDocNum, double weight, String uuid){
 //        this.destText = destText;
         this.destDocNum = destDocNum;
+        this.weight = weight;
         this.uuid = uuid;
     }
 
     public LinkJson toJson(){
-        return new LinkJson(destDocNum, uuid);
+        return new LinkJson(destDocNum, weight, uuid);
     }
 }
