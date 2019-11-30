@@ -19,22 +19,22 @@ public class DocumentMorphia {
     public String url;
     public String title;
     public int docNum;
-    public double hub;
-    public double auth;
+    //public double hub;
+    //public double auth;
     public List<FragmentMorphia> fragments;
-    public String uuid;
+    //public String uuid;
 
     @SuppressWarnings("unused")
     private DocumentMorphia() {}
 
-    public DocumentMorphia(String url, String title, int docNum, double hub, double auth, List<FragmentMorphia> fragments, String uuid){
+    public DocumentMorphia(String url, String title, int docNum, List<FragmentMorphia> fragments){
         this.url = url;
         this.title = title;
         this.docNum = docNum;
-        this.hub = hub;
-        this.auth = auth;
+        //this.hub = hub;
+        //this.auth = auth;
         this.fragments = fragments;
-        this.uuid = uuid;
+        //this.uuid = uuid;
     }
     public DocumentJson toJson(){
         List<FragmentJson> jList = new LinkedList<>();
@@ -45,6 +45,6 @@ public class DocumentMorphia {
                 jList.add(lm.toJson());
             }
         }
-        return new DocumentJson(url, title, docNum, hub, auth, jList, uuid);
+        return new DocumentJson(url, title, docNum, 0, 0, jList);//UUID, HITS
     }
 }

@@ -3,6 +3,7 @@ package dataStructures.morphias;
 import dataStructures.jsons.CurationMapJson;
 import dataStructures.jsons.DocumentJson;
 
+import models.CurationMap;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.*;
 
@@ -16,19 +17,19 @@ public class CurationMapMorphia {
     private ObjectId _id;
 
     public String query;
-    public Double alpha;
+    //public Double alpha;
     public List<DocumentMorphia> documents;
 
     @SuppressWarnings("unused")
     private CurationMapMorphia() {}
 
-    public CurationMapMorphia(String query, Double alpha, List<DocumentMorphia> documents){
+    public CurationMapMorphia(String query, List<DocumentMorphia> documents){
         this.query = query;
-        this.alpha = alpha;
+        //this.alpha = alpha;
         this.documents = documents;
     }
 
-    public CurationMapJson toJson(){
+    public CurationMapJson toJson(Double alpha, Double beta){
         List<DocumentJson> jList = new LinkedList<>();
 
         if(documents != null) {
@@ -36,7 +37,7 @@ public class CurationMapMorphia {
                 jList.add(dm.toJson());
             }
         }
-        return new CurationMapJson(query, alpha, jList);
+        return new CurationMapJson(query, alpha, beta, jList);
     }
 
 }

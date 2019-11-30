@@ -1,6 +1,7 @@
 package dataStructures.morphias;
 
 import dataStructures.jsons.LinkJson;
+import models.InclusiveLink;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -14,19 +15,23 @@ public class LinkMorphia {
 //    public String destText;
     public int destDocNum;
     public double weight;
-    public String uuid;
+    //public String uuid;
 
     @SuppressWarnings("unused")
     private LinkMorphia() {}
 
-    public LinkMorphia(int destDocNum, double weight, String uuid){
+    public LinkMorphia(int destDocNum, double weight){
 //        this.destText = destText;
         this.destDocNum = destDocNum;
         this.weight = weight;
-        this.uuid = uuid;
+        //this.uuid = uuid;
     }
 
     public LinkJson toJson(){
-        return new LinkJson(destDocNum, weight, uuid);
+        return new LinkJson(destDocNum, weight);//UUID
+    }
+
+    public InclusiveLink toObject(){
+       return new InclusiveLink(weight, destDocNum);
     }
 }
