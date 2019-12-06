@@ -22,16 +22,16 @@ public class FragmentMorphia {
     //public String text;
     public List<MorphemeMorphia> morphemes;
     public List<LinkMorphia> links;
-    //public String uuid;
+    public String uuid;
 
     @SuppressWarnings("unused")
     private FragmentMorphia() {}
 
-    public FragmentMorphia(List<Morpheme> morphemes, List<LinkMorphia> links){
+    public FragmentMorphia(List<Morpheme> morphemes, List<LinkMorphia> links, String uuid){
         //this.text = text;
         this.morphemes = new ArrayList<>();
         this.links = links;
-        //this.uuid = uuid;
+        this.uuid = uuid;
 
         morphemes.forEach(
                 m ->
@@ -53,7 +53,7 @@ public class FragmentMorphia {
                         sb.append(m.word)
         );
 
-        return new FragmentJson(sb.toString(), jList);//UUID
+        return new FragmentJson(sb.toString(), jList, uuid);//UUID
     }
 
 }

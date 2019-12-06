@@ -12,15 +12,15 @@ case class DocumentJson(url : String,
                         hub : Double,
                         auth : Double,
                         fragments : Seq[FragmentJson],
-                        /*uuid: String*/){
+                        uuid: String){
   def this(url : String,
            title: String,
            docNum : Int,
            hub : Double,
            auth : Double,
            fragments : JList[FragmentJson],
-           /*uuid: String*/) = {
-    this(url,title,docNum,hub,auth, fragments.asScala)
+           uuid: String) = {
+    this(url,title,docNum,hub,auth, fragments.asScala, uuid)
   }
 }
 object DocumentJson{

@@ -8,11 +8,11 @@ import scala.collection.JavaConverters._
 
 case class FragmentJson(text : String,
                         links :Seq[LinkJson],
-                        /*uuid : String*/) {
+                        uuid : String) {
   def this(text: String,
            links: JList[LinkJson],
-           /*uuid: String*/) = {
-    this(text, links.asScala)
+           uuid: String) = {
+    this(text, links.asScala, uuid)
   }
 }
 object FragmentJson{
