@@ -25,7 +25,7 @@ case class Morphia2Scala() {
                     retMorphs += Morpheme(m.word, m.morphe)
                 }
                 //println(frag.uuid)
-                val f = Fragment(retMorphs.toVector, UUID.fromString(frag.uuid))
+                val f = Fragment(retMorphs.toVector, frag.uuid.toLong)
                 //println(f.uuid)
                 val retLinks = mutable.MutableList.empty[InclusiveLink]
 
@@ -42,7 +42,7 @@ case class Morphia2Scala() {
             }
           }
 
-          retDocs += Document(doc.url, doc.title, retFrags.toVector, doc.docNum, UUID.fromString(doc.uuid))
+          retDocs += Document(doc.url, doc.title, retFrags.toVector, doc.docNum, doc.uuid.toLong)
       }
     }
 
