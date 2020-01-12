@@ -1,20 +1,20 @@
 package dataStructures.morphias
 
-import java.util.UUID
-
 import models._
 
 import scala.collection.mutable
 
 case class Morphia2Scala() {
 
-  def convert(curationMapMorphia: CurationMapMorphia, alpha : Double, beta : Double) : CurationMap ={
+  def convert(documentMorphiaList: List[DocumentMorphia], alpha : Double, beta : Double) : CurationMap ={
 
     val retDocs = mutable.MutableList.empty[Document]
+    var query = ""
 
-    if(curationMapMorphia.documents != null) {
-      curationMapMorphia.documents.forEach {
+    if(documentMorphiaList != null) {
+      documentMorphiaList.foreach {
         doc =>
+          query = doc.query
           val retFrags = mutable.MutableList.empty[Fragment]
           if(doc.fragments != null) {
             doc.fragments.forEach {
@@ -46,7 +46,7 @@ case class Morphia2Scala() {
       }
     }
 
-    CurationMap(curationMapMorphia.query, retDocs.toVector, alpha, beta)
+    CurationMap(query, retDocs.toVector, alpha, beta)
   }
 
 }

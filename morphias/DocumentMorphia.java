@@ -3,9 +3,10 @@ package dataStructures.morphias;
 import dataStructures.jsons.DocumentJson;
 import dataStructures.jsons.FragmentJson;
 
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class DocumentMorphia {
     @SuppressWarnings("unused")
     private ObjectId _id;
 
+    public String query;
     public String url;
     public String title;
     public int docNum;
@@ -27,7 +29,8 @@ public class DocumentMorphia {
     @SuppressWarnings("unused")
     private DocumentMorphia() {}
 
-    public DocumentMorphia(String url, String title, int docNum, List<FragmentMorphia> fragments, String uuid){
+    public DocumentMorphia(String query, String url, String title, int docNum, List<FragmentMorphia> fragments, String uuid){
+        this.query = query;
         this.url = url;
         this.title = title;
         this.docNum = docNum;

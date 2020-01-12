@@ -1,10 +1,11 @@
 package dataStructures.morphias;
 
 import dataStructures.jsons.LinkJson;
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
 import models.InclusiveLink;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+
 
 @Entity("links")
 public class LinkMorphia {

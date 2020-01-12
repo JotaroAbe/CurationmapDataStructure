@@ -2,13 +2,14 @@ package dataStructures.morphias
 
 import com.mongodb.{MongoClient, MongoClientOptions, MongoCredential, ServerAddress}
 import com.typesafe.config.ConfigFactory
-import org.mongodb.morphia.{Datastore, Morphia}
+import dev.morphia.{Datastore, Morphia}
+
 import scala.collection.JavaConverters._
 
 case class MongoDatastoreFactory() {
   def createDataStore : Datastore = {
     val morphia = new Morphia
-    morphia.map(classOf[CurationMapMorphia])
+    morphia.map(classOf[DocumentMorphia])
 
     val config = ConfigFactory.load()
 
